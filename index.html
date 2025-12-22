@@ -38,18 +38,11 @@
             align-items: center;
         }
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 1.8rem;
-    color: #284d3c;
-    font-weight: 600;
-    letter-spacing: 2px;
-}
-        .logo img {
-    height: 60px;
-    width: auto;
+        .logo {
+            font-size: 1.8rem;
+            color: #284d3c;
+            font-weight: 600;
+            letter-spacing: 2px;
         }
 
         .nav-toggle {
@@ -104,7 +97,7 @@
             top: -50%;
             right: -10%;
             width: 600px;
-            height: 300px;
+            height: 600px;
             background: radial-gradient(circle, rgba(40, 77, 60, 0.05) 0%, transparent 70%);
             border-radius: 50%;
         }
@@ -228,6 +221,64 @@
             gap: 2.5rem;
             max-width: 1300px;
             margin: 0 auto;
+        }
+
+        /* Services Detail Section */
+        .services-detail {
+            background: white;
+            padding: clamp(3rem, 8vw, 6rem) 5%;
+        }
+
+        .services-detail-intro {
+            max-width: 1000px;
+            margin: 0 auto 4rem;
+            text-align: center;
+        }
+
+        .services-detail-intro p {
+            font-size: clamp(1rem, 2vw, 1.1rem);
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .services-detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+            gap: 2.5rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .service-detail-card {
+            background: #f9faf9;
+            padding: clamp(2rem, 4vw, 2.5rem);
+            border-radius: 15px;
+            box-shadow: 0 3px 20px rgba(0,0,0,0.06);
+            transition: all 0.3s;
+        }
+
+        .service-detail-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+
+        .service-detail-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-detail-card h3 {
+            color: #284d3c;
+            margin-bottom: 1rem;
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            font-weight: 600;
+        }
+
+        .service-detail-card p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 0.95rem;
         }
 
         .service-card {
@@ -377,16 +428,62 @@
             background: #f9faf9;
         }
 
-        .pricing-note {
-            max-width: 800px;
-            margin: 0 auto 3rem;
+        .pricing-intro {
+            max-width: 900px;
+            margin: 0 auto 4rem;
             text-align: center;
             font-size: clamp(1rem, 2vw, 1.1rem);
-            color: #666;
-            padding: 2rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+            gap: 2.5rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
             background: white;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            padding: clamp(2rem, 4vw, 2.5rem);
+            border-radius: 15px;
+            box-shadow: 0 3px 20px rgba(0,0,0,0.06);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+
+        .pricing-card h3 {
+            color: #284d3c;
+            margin-bottom: 1.5rem;
+            font-size: clamp(1.2rem, 2.5vw, 1.4rem);
+            font-weight: 600;
+            min-height: 3rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .price {
+            font-size: clamp(1.8rem, 3vw, 2.2rem);
+            color: #284d3c;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #f0f5f3;
+        }
+
+        .pricing-card p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 0.95rem;
+            flex-grow: 1;
         }
 
         /* Testimonials Section */
@@ -579,33 +676,29 @@
 </head>
 <body>
     <!-- Navigation -->
-<nav>
-    <div class="nav-container">
-
-        <div class="nav-toggle" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Wed&Chill</div>
+            <div class="nav-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul id="navMenu">
+                <li><a href="#uvod" onclick="closeMenu()">ÚVOD</a></li>
+                <li><a href="#o-mne" onclick="closeMenu()">O MNĚ</a></li>
+                <li><a href="#sluzby" onclick="closeMenu()">SLUŽBY</a></li>
+                <li><a href="#cenik" onclick="closeMenu()">CENÍK</a></li>
+                <li><a href="#jak-to-funguje" onclick="closeMenu()">JAK TO FUNGUJE</a></li>
+                <li><a href="#fotogalerie" onclick="closeMenu()">FOTOGALERIE</a></li>
+                <li><a href="#reference" onclick="closeMenu()">REFERENCE</a></li>
+                <li><a href="#kontakt" onclick="closeMenu()">KONTAKT</a></li>
+            </ul>
         </div>
+    </nav>
 
-        <ul id="navMenu">
-            <li><a href="#uvod" onclick="closeMenu()">ÚVOD</a></li>
-            <li><a href="#o-mne" onclick="closeMenu()">O MNĚ</a></li>
-            <li><a href="#sluzby" onclick="closeMenu()">SLUŽBY</a></li>
-            <li><a href="#jak-to-funguje" onclick="closeMenu()">JAK TO FUNGUJE</a></li>
-            <li><a href="#fotogalerie" onclick="closeMenu()">FOTOGALERIE</a></li>
-            <li><a href="#reference" onclick="closeMenu()">REFERENCE</a></li>
-            <li><a href="#kontakt" onclick="closeMenu()">KONTAKT</a></li>
-        </ul>
-
-    </div>
-</nav>
     <!-- Hero Section -->
     <section id="uvod" class="hero">
-        <div class="logo">
-            <img src="images/wed-and-chill-black.png" alt="Wed & Chill Logo">
-            <span>Wed&Chill</span>
-        </div>
         <div class="hero-content">
             <h1>Wed&Chill</h1>
             <p>Svatební koordinace, která vám umožní si svatbu užít bez starostí a zbytečného stresu</p>
@@ -647,6 +740,88 @@
             <div class="service-card">
                 <h3>Komplexní svatba na klíč</h3>
                 <p>Postarám se prostě buď o celou svatbu od začátku až do poslední proplacenou fakturu, nebo třeba jen o jednu část celého procesu příprav, kterou mi budete chtít dát na starost.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offered Services Detail Section -->
+    <section class="services-detail">
+        <h2 class="section-title">Nabízené služby</h2>
+        <div class="services-detail-intro">
+            <p>Každý pár má jinou představu svého velkého dne — někdo sní o tradiční svatbě v kostele, někdo plánuje veselku pro 130 hostů a jiní si přejí oběad ve stylu Pána prstenů. Slovo "individuální přístup" možná zní trochu otřepané, ale v mém případě je to naprostá pravda.</p>
+            <p>Mým úkolem je najít pro vás ty nejlepší cesty, jak vaše sny proměnit ve skutečnost. Ráda se s vámi osobně setkám, probereme vaši představu, poradím s tím, co vás trápí, a pomohu vám s čímkoliv – ať už chcete naplánovat celou svatbu na klíč, nebo jen potřebujete poradit s výběrem dortu, dekorací či sestavením harmonogramu.</p>
+            <p>Každý den je jiný a já se postarám o to, aby byl přesně podle vašich představ – pohodový, bez stresu a s radostí.</p>
+        </div>
+        <div class="services-detail-grid">
+            <div class="service-detail-card">
+                <div class="service-detail-icon">📋</div>
+                <h3>Namyšlení konceptu</h3>
+                <p>Společně vytvoříme jasnou vizi vašeho dne. Styl, barvy, atmosféra, výzdoba i celkový dojem — všechny elementy provoří originální koncept, díky kterému bude vaše svatba osobní, promyšlená a vizuálně sladěná.</p>
+            </div>
+            <div class="service-detail-card">
+                <div class="service-detail-icon">✓</div>
+                <h3>Harmonogramy, check listy</h3>
+                <p>Vytvořím pro vás jasný plán svatebního dne, přehledné seznamy úkolů a časovou osu, díky které budete mít kontrolu nad celým procesem. Praktické, intuitivní a šité na míru vašemu typu svatby.</p>
+            </div>
+            <div class="service-detail-card">
+                <div class="service-detail-icon">👥</div>
+                <h3>Zajištění dodavatelů</h3>
+                <p>Doporuču prověřené dodavatele, se kterými mám dlouhodobé zkušenosti. Zajistím nabídky, domluvím si s nimi detaily a pohlídám komunikaci. Ať už hledáte fotografa, floristku, DJ nebo cukrářku — vím, na koho se obrátit.</p>
+            </div>
+            <div class="service-detail-card">
+                <div class="service-detail-icon">💰</div>
+                <h3>Tvorba rozpočtu</h3>
+                <p>Připravím pro vás přehledný a realistický rozpočet podle vašich představ, možností a stylu svatby. Ukážu, kde se vyplatí investovat, kde můžete ušetřit a jak nastavit finance tak, aby vše dávalo smysl.</p>
+            </div>
+            <div class="service-detail-card">
+                <div class="service-detail-icon">📅</div>
+                <h3>Koordinace svatebního dne</h3>
+                <p>V den D jsem tam pro vás od rána do večera. Hlídám harmonogram, řeším komunikaci s dodavateli, kontroluji průběh a zvládnu i nečekané situace. Vy si tak svatbu můžete užít naplno — přesně tak, jak jste si vysníli.</p>
+            </div>
+            <div class="service-detail-card">
+                <div class="service-detail-icon">💍</div>
+                <h3>Svatba na klíč</h3>
+                <p>Kompletní plánování od prvního nápadu až po poslední detail. Postarám se o koncept, harmonogram, dodavatele, komunikaci i koordinaci dne D a následné zařizování po skončení svatby. Vy si jen užíváte přípravy a těšíte se na svůj den — bez starostí, bez chaosu.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="cenik" class="pricing">
+        <h2 class="section-title">Ceník</h2>
+        <div class="pricing-intro">
+            <p>Ceny nabízených služeb jsou individuální a vždy závisí na konkrétních požadavcích a rozsahu svatby. Nicméně, snažím se nabídnout základní transparentní ceník jednotlivých služeb, pokud se rozhodnete využít pouze část mé pomoci.</p>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>Konzultační schůzky</h3>
+                <div class="price">300 Kč</div>
+                <p>První schůzka (osobně či on-line) zdarma, následné konzultace (časově neomezené) 300 Kč.</p>
+            </div>
+            <div class="pricing-card">
+                <h3>Návrh svatebního konceptu</h3>
+                <div class="price">2000 Kč</div>
+                <p>Návrh svatebního konceptu je prvním nástinem, jak by vaše vysněná svatba měla vypadat. Koncept slouží jako základ pro plánování a sjednocuje všechny detaily vašeho dne. Pokud se rozhodnete využít mé služby v celém rozsahu koordinace svatby, nabízím výhodnější balíček.</p>
+            </div>
+            <div class="pricing-card">
+                <h3>Doporučení či vyhledávání dodavatelů</h3>
+                <div class="price">od 2000 Kč</div>
+                <p>Pokud tápete, které dodavatele zvolit a nevíte, zda je nabízená cena za službu moc či málo, ráda vám poradím s výběrem. Cena závisí na rozsahu služby.</p>
+            </div>
+            <div class="pricing-card">
+                <h3>Sestavení harmonogramu svatebního dne</h3>
+                <div class="price">od 2000 Kč</div>
+                <p>Rozhodli jste se pro zajištění svatby po vlastní ose, ale bojíte se, abyste v den D na nic nezapomněli? Připravím jasný, srozumitelný a realistický plán celého dne. Díky němu budete vědět, kdo kdy co dělá, a nic nezůstane náhodě.</p>
+            </div>
+            <div class="pricing-card">
+                <h3>Koordinace svatebního dne</h3>
+                <div class="price">od 5000 Kč</div>
+                <p>Koordinace svatebního dne je klíčovým prvkem pro zajištění hladkého průběhu a nezapomenutelného prožitku pro novomanžele. Proto budu na místě od samého začátku až do konce, abych ohlídala, že vše proběhne tak, jak má, a vyřešila případné problémy.</p>
+            </div>
+            <div class="pricing-card">
+                <h3>Svatba na klíč</h3>
+                <div class="price">dohodou</div>
+                <p>Komplexní balíček pro páry, které chtějí vše svěřit profesiónálovi. Od úvodní konzultace přes koncept, výběr dodavatelů, plánování, rozpočet až po koordinaci svatebního dne a dořešení po svatbě.</p>
             </div>
         </div>
     </section>
