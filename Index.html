@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wed&Chill - Svatební koordinace | Adéla</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+            line-height: 1.7;
+            color: #333;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 5%;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            z-index: 1000;
+            transition: padding 0.3s;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            color: #284d3c;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .nav-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #284d3c;
+            transition: all 0.3s;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #284d3c;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #3d7257;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+            background: #f0f5f3;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            object-fit: cover;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(240, 245, 243, 0.5);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            color: #284d3c;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+        }
+
+        .hero-content p {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            color: #284d3c;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: #284d3c;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.3s;
+            letter-spacing: 1.5px;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .cta-button:hover {
+            background: #3d7257;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(40, 77, 60, 0.3);
+        }
+
+        /* Sections */
+        section {
+            padding: clamp(3rem, 8vw, 6rem) 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            color: #284d3c;
+            margin-bottom: 3.5rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        /* About Section */
+        .about {
+            background: white;
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, #f0f5f3 0%, #e8f0ec 100%);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-content {
+            font-size: clamp(1rem, 2vw, 1.1rem);
+            color: #555;
+        }
+
+        .about-content h3 {
+            color: #284d3c;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        /* Services Section */
+        .services {
+            background: #f9faf9;
+        }
+
+        .services-intro {
+            max-width: 900px;
+            margin: 0 auto 4rem;
+            text-align: center;
+            font-size: clamp(1rem, 2vw, 1.15rem);
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+            gap: 2.5rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        /* Services Detail Section */
+        .services-detail {
+            background: white;
+            padding: clamp(3rem, 8vw, 6rem) 5%;
+        }
+
+        .services-detail-intro {
+            max-width: 1000px;
+            margin: 0 auto 4rem;
+            text-align: center;
+        }
+
+        .services-detail-intro p {
+            font-size: clamp(1rem, 2vw, 1.1rem);
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .services-detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+            gap: 2.5rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .service-detail-card {
+            background: #f9faf9;
+            padding: clamp(2rem, 4vw, 2.5rem);
+            border-radius: 15px;
+            box-shadow: 0 3px 20px rgba(0,0,0,0.06);
+            transition: all 0.3s;
+        }
+
+        .service-detail-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+
+        .service-detail-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-detail-card h3 {
+            color: #284d3c;
+            margin-bottom: 1rem;
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            font-weight: 600;
+        }
+
+        .service-detail-card p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: clamp(2rem, 4vw, 3rem);
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+        }
+
+        .service-card h3 {
+            color: #284d3c;
+            margin-bottom: 1.5rem;
+            font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+            font-weight: 600;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Process Section */
+        .process {
+            background: white;
+        }
+
+        .process-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .process-item {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid #e8f0ec;
+        }
+
+        .process-item:last-child {
+            border-bottom: none;
+        }
+
+        .process-number {
+            width: 80px;
+            height: 80px;
+            background: #f0f5f3;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #284d3c;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .process-content h3 {
+            color: #284d3c;
+            font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .process-content p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Why Section */
+        .why {
+            background: #f9faf9;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .why-item {
+            background: white;
+            padding: 1.5rem 2rem;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+        }
+
+        .why-icon {
+            font-size: 1.5rem;
+            color: #284d3c;
+            flex-shrink: 0;
+        }
+
+        .why-item p {
+            color: #666;
+            line-height: 1.6;
+            text-align: left;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            background: white;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+            gap: 1.5rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            height: 350px;
+            background: #f0f5f3;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background: #f9faf9;
+        }
+
+        .pricing-intro {
+            max-width: 900px;
+            margin: 0 auto 4rem;
+            text-align: center;
+            font-size: clamp(1rem, 2vw, 1.1rem);
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+            gap: 2.5rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: white;
+            padding: clamp(2rem, 4vw, 2.5rem);
+            border-radius: 15px;
+            box-shadow: 0 3px 20px rgba(0,0,0,0.06);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+
+        .pricing-card h3 {
+            color: #284d3c;
+            margin-bottom: 1.5rem;
+            font-size: clamp(1.2rem, 2.5vw, 1.4rem);
+            font-weight: 600;
+            min-height: 3rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .price {
+            font-size: clamp(1.8rem, 3vw, 2.2rem);
+            color: #284d3c;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #f0f5f3;
+        }
+
+        .pricing-card p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 0.95rem;
+            flex-grow: 1;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background: white;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial {
+            background: #f9faf9;
+            padding: clamp(2rem, 4vw, 3rem);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            font-style: italic;
+            color: #666;
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: '"';
+            font-size: clamp(3rem, 8vw, 5rem);
+            color: #e8f0ec;
+            position: absolute;
+            top: 1rem;
+            left: 1.5rem;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            position: relative;
+            z-index: 1;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            margin-top: 1.5rem;
+            font-style: normal;
+            color: #284d3c;
+            font-weight: 600;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #f0f5f3 0%, #e8f0ec 100%);
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-intro {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: #666;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        .contact-info {
+            background: white;
+            padding: clamp(2rem, 4vw, 3rem);
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+        }
+
+        .contact-item {
+            margin: 1.8rem 0;
+            font-size: clamp(1rem, 2vw, 1.1rem);
+            color: #555;
+        }
+
+        .contact-item a {
+            color: #284d3c;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .contact-item a:hover {
+            color: #3d7257;
+        }
+
+        /* Footer */
+        footer {
+            background: #284d3c;
+            color: white;
+            text-align: center;
+            padding: 2.5rem 5%;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+        }
+
+        /* Mobile Navigation */
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: flex;
+            }
+
+            nav ul {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 3rem;
+                gap: 2rem;
+                transition: left 0.3s;
+                box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            }
+
+            nav ul.active {
+                left: 0;
+            }
+
+            nav a {
+                font-size: 1.2rem;
+            }
+
+            .nav-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(8px, 8px);
+            }
+
+            .nav-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .nav-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -7px);
+            }
+        }
+
+        /* Tablet and Mobile Responsive */
+        @media (max-width: 1024px) {
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-image {
+                height: 350px;
+            }
+
+            .process-item {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .process-number {
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 6rem 1.5rem 3rem;
+            }
+
+            section {
+                padding: 3rem 5%;
+            }
+
+            .service-card,
+            .testimonial {
+                padding: 2rem;
+            }
+
+            .gallery-item {
+                height: 250px;
+            }
+
+            .about-image {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Wed&Chill</div>
+            <div class="nav-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul id="navMenu">
+                <li><a href="#uvod" onclick="closeMenu()">ÚVOD</a></li>
+                <li><a href="#o-mne" onclick="closeMenu()">O MNĚ</a></li>
+                <li><a href="#sluzby" onclick="closeMenu()">SLUŽBY</a></li>
+                <li><a href="#cenik" onclick="closeMenu()">CENÍK</a></li>
+                <li><a href="#jak-to-funguje" onclick="closeMenu()">JAK TO FUNGUJE</a></li>
+                <li><a href="#fotogalerie" onclick="closeMenu()">FOTOGALERIE</a></li>
+                <li><a href="#reference" onclick="closeMenu()">REFERENCE</a></li>
+                <li><a href="#kontakt" onclick="closeMenu()">KONTAKT</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="uvod" class="hero">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="VIDEO_URL_HERE.mp4" type="video/mp4">
+            <source src="VIDEO_URL_HERE.webm" type="video/webm">
+        </video>
+        <div class="hero-content">
+            <h1>Wed&Chill</h1>
+            <p>Svatební koordinace, která vám umožní si svatbu užít bez starostí a zbytečného stresu</p>
+            <a href="#kontakt" class="cta-button">POJĎME TO NAPLÁNOVAT</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="o-mne" class="about">
+        <h2 class="section-title">Kdo jsem?</h2>
+        <div class="about-container">
+            <div class="about-image">
+                <!-- Zde bude fotka Adély -->
+            </div>
+            <div class="about-content">
+                <h3>Adéla</h3>
+                <p>Jmenuji se Adéla a jsem certifikovaná svatební koordinátorka.</p>
+                <p>Zorganizuji vám svatební den, na který budete rádi vzpomínat, a který si užijete naplno, ale hlavně bez starostí a zbytečného stresu.</p>
+                <a href="#kontakt" class="cta-button" style="margin-top: 1rem;">Kontaktujte mě</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="sluzby" class="services">
+        <h2 class="section-title">Co nabízím?</h2>
+        <div class="services-intro">
+            <p>Ráda Vám pomohu s koordinací svatby a výběrem těch nejlepších dodavatelů dle vašich potřeb a rozpočtu – od místa a cateringu až po floristky a fotografy.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Konzultace & Plánování</h3>
+                <p>Spoustu věcí si chcete zajistit po svém, ale tápete v plánování nebo se bojíte, že jste na něco zapomněli? Nabízím osobní či on-line konzultace, tvorbu harmonogramů a checklistů.</p>
+            </div>
+            <div class="service-card">
+                <h3>Koordinace svatebního dne</h3>
+                <p>Budu na místě v den svatby řešit veškerou agendu nebo potenciální problémy tak, abyste si mohli užít svůj svatební den bez stresu a starostí.</p>
+            </div>
+            <div class="service-card">
+                <h3>Komplexní svatba na klíč</h3>
+                <p>Postarám se prostě buď o celou svatbu od začátku až do poslední proplacenou fakturu, nebo třeba jen o jednu část celého procesu příprav, kterou mi budete chtít dát na starost.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offered Services Detail Section -->
+    <section class="services-detail">
+        <h2 class="section-title">Nabízené služby</h2>
+        <div class="services-detail-intro">
+            <p>Každý pár má jinou představu svého velkého dne — někdo sní o tradiční svatbě v kostele, někdo plánuje veselku pro 130 hostů a jiní si přejí oběad ve stylu Pána prstenů. Slovo "individuální přístup" možná zní trochu otřepané, ale v mém případě je to naprostá pravda.</p>
+            <p>Mým úkolem je najít pro vás ty nejlepší cesty, jak vaše sny proměnit ve skutečnost. Ráda se s vámi osobně setkám, probereme vaši představu, poradím s tím, co vás trápí, a pomohu vám s čímkoliv – ať už chcete naplánovat celou svatbu na klíč, nebo jen potřebujete poradit s výběrem dortu, dekorací či sestavením harmonogramu.</p>
+            <p>Každý den je jiný a já se postarám o to, aby byl přesně podle vašich představ – pohodový, bez stresu a s radostí.</p>
+        </div>
+        <div class="services-detail-grid">
+            <div class="service-detail-card">
+                <div class="service-detail-icon">📋</div>
+                <h3>Namyšlení konceptu</h3>
+                <p>Společně vytvoříme jasnou vizi vašeho dne. Styl, barvy, atmosféra, výzdoba i celkový dojem — všechny elementy provoří originální koncept, díky kterému bude vaše svatba osobní, promyšlená a vizuálně sladěná.</p>
+            </div>
+            <div class="service-detail-card">
+                <div class="service-detail-icon">✓</div>
+                <h3>Harmonogramy, check listy</h3>
+                <p>Vytvořím pro vás jasný plán svatebního dne, přehledné seznamy úkolů a časovou osu, díky které budete mít kontrolu nad celým procesem. Praktické, intuitivní a šité na míru vašemu typu svatby.</p>
+            </div>
+            <div class="service-detail-card">
+                <div class="service-detail-icon">👥</div>
+                <h3>Zajištění dodavatelů</h3>
+                <p>Doporuču prověřené dodavatele, se kterými mám dlouhodobé zkušenosti. Zajistím nabídky, domluvím si s nimi detaily a pohlídám komunikaci. Ať už hledáte fotografa, floristku, DJ nebo cukrářku — vím, na koho se obrátit.</p>
+            </div>
+            <div class="service-detail-card">
+                <div class="service-detail-icon">💰</div>
+                <h3>Tvorba rozpočtu</h3>
+                <p>Připravím pro vás přehledný a realistický rozpočet podle vašich představ, možností a stylu svatby. Ukážu, kde se vyplatí investovat, kde můžete ušetřit a jak nastavit finance tak, aby vše dávalo smysl.</p>
+            </div>
+            <div class="service-detail-card">
+                <div class="service-detail-icon">📅</div>
+                <h3>Koordinace svatebního dne</h3>
+                <p>V den D jsem tam pro vás od rána do večera. Hlídám harmonogram, řeším komunikaci s dodavateli, kontroluji průběh a zvládnu i nečekané situace. Vy si tak svatbu můžete užít naplno — přesně tak, jak jste si vysníli.</p>
+            </div>
+            <div class="service-detail-card">
+                <div class="service-detail-icon">💍</div>
+                <h3>Svatba na klíč</h3>
+                <p>Kompletní plánování od prvního nápadu až po poslední detail. Postarám se o koncept, harmonogram, dodavatele, komunikaci i koordinaci dne D a následné zařizování po skončení svatby. Vy si jen užíváte přípravy a těšíte se na svůj den — bez starostí, bez chaosu.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="cenik" class="pricing">
+        <h2 class="section-title">Ceník</h2>
+        <div class="pricing-intro">
+            <p>Ceny nabízených služeb jsou individuální a vždy závisí na konkrétních požadavcích a rozsahu svatby. Nicméně, snažím se nabídnout základní transparentní ceník jednotlivých služeb, pokud se rozhodnete využít pouze část mé pomoci.</p>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>Konzultační schůzky</h3>
+                <div class="price">300 Kč</div>
+                <p>První schůzka (osobně či on-line) zdarma, následné konzultace (časově neomezené) 300 Kč.</p>
+            </div>
+            <div class="pricing-card">
+                <h3>Návrh svatebního konceptu</h3>
+                <div class="price">2000 Kč</div>
+                <p>Návrh svatebního konceptu je prvním nástinem, jak by vaše vysněná svatba měla vypadat. Koncept slouží jako základ pro plánování a sjednocuje všechny detaily vašeho dne. Pokud se rozhodnete využít mé služby v celém rozsahu koordinace svatby, nabízím výhodnější balíček.</p>
+            </div>
+            <div class="pricing-card">
+                <h3>Doporučení či vyhledávání dodavatelů</h3>
+                <div class="price">od 2000 Kč</div>
+                <p>Pokud tápete, které dodavatele zvolit a nevíte, zda je nabízená cena za službu moc či málo, ráda vám poradím s výběrem. Cena závisí na rozsahu služby.</p>
+            </div>
+            <div class="pricing-card">
+                <h3>Sestavení harmonogramu svatebního dne</h3>
+                <div class="price">od 2000 Kč</div>
+                <p>Rozhodli jste se pro zajištění svatby po vlastní ose, ale bojíte se, abyste v den D na nic nezapomněli? Připravím jasný, srozumitelný a realistický plán celého dne. Díky němu budete vědět, kdo kdy co dělá, a nic nezůstane náhodě.</p>
+            </div>
+            <div class="pricing-card">
+                <h3>Koordinace svatebního dne</h3>
+                <div class="price">od 5000 Kč</div>
+                <p>Koordinace svatebního dne je klíčovým prvkem pro zajištění hladkého průběhu a nezapomenutelného prožitku pro novomanžele. Proto budu na místě od samého začátku až do konce, abych ohlídala, že vše proběhne tak, jak má, a vyřešila případné problémy.</p>
+            </div>
+            <div class="pricing-card">
+                <h3>Svatba na klíč</h3>
+                <div class="price">dohodou</div>
+                <p>Komplexní balíček pro páry, které chtějí vše svěřit profesiónálovi. Od úvodní konzultace přes koncept, výběr dodavatelů, plánování, rozpočet až po koordinaci svatebního dne a dořešení po svatbě.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="jak-to-funguje" class="process">
+        <h2 class="section-title">Jak to funguje?</h2>
+        <div class="process-grid">
+            <div class="process-item">
+                <div class="process-number">1</div>
+                <div class="process-content">
+                    <h3>Úvodní konzultace</h3>
+                    <p>Na nezávazném prvním setkání (online nebo osobně) probereme vaši představu, priority a styl svatby. Zjistím, co je pro vás nejdůležitější, s čím si nevíte rady a jak vám mohu nejlépe pomoct. Součástí úvodní konzultace je i doporučení prvních kroků, tipů a možností, které se k vašemu typu svatby nejvíce hodí — abyste už od začátku měli jasno, jak postupovat dál.</p>
+                </div>
+            </div>
+            <div class="process-item">
+                <div class="process-number">2</div>
+                <div class="process-content">
+                    <h3>Návrh konceptu</h3>
+                    <p>Ráda vám připravím detailní koncept vaší svatby. Zahrnuje styl, barevnost, atmosféru, celkový vizuální směr i doporučené dekorace a prvky, které váš den udělají osobním a jedinečným. Koncept slouží jako základ, který sjednotí všechny detaily — od designu svatebního oznámení až po výzdobu místa a harmonogram dne.</p>
+                </div>
+            </div>
+            <div class="process-item">
+                <div class="process-number">3</div>
+                <div class="process-content">
+                    <h3>Rozpočtování</h3>
+                    <p>Dle vašich přání a požadavků, velikosti svatby a stylu připravím návrh orientačního rozpočtu. Díky tomu budete mít už v začátku jasný přehled o finanční náročnosti jednotlivých položek, možnostech úspor i potenciálních alternativách. Transparentně vám ukážu, kde se dá ušetřit, kde se vyplatí investovat a jak nastavit rozpočet tak, aby odpovídal vašim snům i možnostem — bez zbytečného stresu.</p>
+                </div>
+            </div>
+            <div class="process-item">
+                <div class="process-number">4</div>
+                <div class="process-content">
+                    <h3>Plánování</h3>
+                    <p>Jakmile máme jasný směr, pustíme se do detailního plánování. Pomohu vám s výběrem ověřených dodavatelů, domluvím termíny, zajistím komunikaci, připravím časovou osu a check list a pohlídám všechny úkoly i termíny. Pravidelně vás informuji o postupu, aby pro vás bylo plánování co nejjednodušší a bez stresu. Ať už potřebujete svatbu na klíč, nebo jen částečnou pomoc, proces přizpůsobím vašim možnostem a očekáváním.</p>
+                </div>
+            </div>
+            <div class="process-item">
+                <div class="process-number">5</div>
+                <div class="process-content">
+                    <h3>Svatební den</h3>
+                    <p>V den D jsem na místě od začátku až do konce, abych vše pohlídala za vás. Koordinuji dodavatele, řeším nečekané situace, hlídám časový plán a starám se o to, aby všechno proběhlo hladce a vy jste si mohli jen užívat. Vy se soustředíte na sebe. Já se postarám o zbytek.</p>
+                </div>
+            </div>
+            <div class="process-item">
+                <div class="process-number">6</div>
+                <div class="process-content">
+                    <h3>Následná péče</h3>
+                    <p>Ani po svatbě se hned neloučíme. Pomohu vám s předáním materiálů, komunikací s dodavateli, vyúčtováním nebo dalšími drobnostmi, které je potřeba dořešit. Jsem tu, abych vám ulehčila celý proces od začátku až do posledního detailu — protože svatba nekončí obřadem, ale teprve začíná vaše společná kapitola.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Section -->
+    <section class="why">
+        <h2 class="section-title">Proč si mě vybrat?</h2>
+        <div class="why-grid">
+            <div class="why-item">
+                <div class="why-icon">✓</div>
+                <p>Spolehlivá komunikace – víte, co se děje v každém kroku</p>
+            </div>
+            <div class="why-item">
+                <div class="why-icon">✓</div>
+                <p>Transparentní a promyšlená práce s rozpočtem</p>
+            </div>
+            <div class="why-item">
+                <div class="why-icon">✓</div>
+                <p>Moderní digitální plánování, které šetří čas</p>
+            </div>
+            <div class="why-item">
+                <div class="why-icon">✓</div>
+                <p>Respektující, osobní přístup – žádné svatby podle šablony</p>
+            </div>
+            <div class="why-item">
+                <div class="why-icon">✓</div>
+                <p>Profesionální event a manažerské zkušenosti</p>
+            </div>
+            <div class="why-item">
+                <div class="why-icon">✓</div>
+                <p>Koordinace dne D, která vám dovolí si váš den naplno užít</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="fotogalerie" class="gallery-section">
+        <h2 class="section-title">Fotogalerie</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+                <!-- Sem přijdou fotky ze svateb -->
+            </div>
+            <div class="gallery-item"></div>
+            <div class="gallery-item"></div>
+            <div class="gallery-item"></div>
+            <div class="gallery-item"></div>
+            <div class="gallery-item"></div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="reference" class="testimonials">
+        <h2 class="section-title">Reference</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial">
+                <div class="testimonial-text">
+                    Naše zkušenost s Áďou byla jedním slovem perfektní. Byli jsme oba extrémně pracovně vytížení a příprava svatby tak šla trochu stranou. Měli jsme nonstop pocit, že to nemůžeme zvládnout. S první koordinátorkou jsme se nakonec museli rozloučit – měli jsme pocit, že jsme to spíše my, kdo ji musí prosit, aby projekt posouvala dál. Áďa byla pravý opak. Během několika dní připravila jasný a detailní seznam všeho, co je potřeba zařídit, spoustu věcí převzala sama a u těch, které vyžadovaly naši konzultaci, si velmi rychle zjistila všechny podklady. Připomínala nám, co je ještě potřeba udělat, a to vždy neuvěřitelně milým, lehkým a profesionálním způsobem. V den svatby jsme se nemuseli starat vůbec o nic. A pokud je něco, co si na vlastní svatbě opravdu přejete, je to pocit, že všechno dopadne skvěle i bez vašeho zásahu. A přesně tak jsme se cítili už od samého rána. Žádný den jsme si v životě neužili tak jako naši svatební párty – a to především díky Ádě. Zní to jako klišé, ale doporučili bychom ji opravdu úplně každému. Moc děkujeme, Áďo!
+                </div>
+                <div class="testimonial-author">— Kateřina a Honza</div>
+            </div>
+            <div class="testimonial">
+                <div class="testimonial-text">
+                    Naše svatba byla z velké části připravená po vlastní ose, ale došlo nám, že na některé detaily prostě sami nestačíme. Adéla nám pomohla s výzdobou, doladila poslední dekorace a postarala se o dort, který jsme potřebovali dořešit. V den svatby převzala koordinaci harmonogramu tak, že jsme si ani jednou nemuseli kontrolovat čas nebo řešit, co má následovat. Díky ní jsme měli pocit, že je o všechno postaráno.
+                </div>
+                <div class="testimonial-author">— Petra a Martin</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="kontakt" class="contact">
+        <h2 class="section-title">Kontakt</h2>
+        <div class="contact-content">
+            <p class="contact-intro">
+                Máte otázky nebo byste rádi začali plánovat svou svatbu? Ráda se s vámi spojím a probereme vše potřebné.
+            </p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <strong>Email:</strong> <a href="mailto:wedandchill.svatby@gmail.com">wedandchill.svatby@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <strong>Telefon:</strong> <a href="tel:+420777817019">+420 777 817 019</a>
+                </div>
+                <div class="contact-item">
+                    <strong>Instagram:</strong> <a href="https://instagram.com/wed.and.chill" target="_blank">@wed.and.chill</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Wed&Chill - Adéla | Svatební koordinace</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Vytvořeno s láskou pro vaše nezapomenutelné okamžiky</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('navMenu');
+            const toggle = document.querySelector('.nav-toggle');
+            menu.classList.toggle('active');
+            toggle.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            const menu = document.getElementById('navMenu');
+            const toggle = document.querySelector('.nav-toggle');
+            menu.classList.remove('active');
+            toggle.classList.remove('active');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const navHeight = document.querySelector('nav').offsetHeight;
+                    const targetPosition = target.offsetTop - navHeight;
+                    window.scrollTo({
+                        top: targetPosition
