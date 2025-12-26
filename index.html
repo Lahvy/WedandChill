@@ -684,7 +684,14 @@
             .about-image {
                 height: 300px;
             }
-        }
+        }/* Fallback pro mobily */
+@media (max-width: 768px) {
+    .hero-video { display: none; }
+    .hero {
+        background: url('./images/hero-fallback.jpg') center/cover no-repeat;
+    }
+}
+
     </style>
 </head>
 <body>
