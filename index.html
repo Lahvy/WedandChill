@@ -1056,3 +1056,15 @@
                     const targetPosition = target.offsetTop - navHeight;
                     window.scrollTo({
                         top: targetPosition
+
+<script>
+        function toggleMenu() {
+            document.getElementById("navMenu").classList.toggle("active");
+        }
+
+        function closeMenu() {
+            document.getElementById("navMenu").classList.remove("active");
+        }
+    </script>
+</body>
+</html>
