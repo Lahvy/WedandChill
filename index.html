@@ -640,6 +640,14 @@
             .nav-toggle.active span:nth-child(3) {
                 transform: rotate(-45deg) translate(7px, -7px);
             }
+
+            .hero-video {
+                display: none;
+            }
+
+            .hero {
+                background: url('images/hero-fallback.jpg') center/cover no-repeat, #f0f5f3;
+            }
         }
 
         /* Tablet and Mobile Responsive */
@@ -684,14 +692,7 @@
             .about-image {
                 height: 300px;
             }
-        }/* Fallback pro mobily */
-@media (max-width: 400px) {
-    .hero-video { display: none; }
-    .hero {
-        background: url('./images/hero-fallback.jpg') center/cover no-repeat;
-    }
-}
-
+        }
     </style>
 </head>
 <body>
@@ -710,7 +711,7 @@
                 <li><a href="#sluzby" onclick="closeMenu()">SLUŽBY</a></li>
                 <li><a href="#cenik" onclick="closeMenu()">CENÍK</a></li>
                 <li><a href="#jak-to-funguje" onclick="closeMenu()">JAK TO FUNGUJE</a></li>
-                <li><a href="#fotorie" onclick="closeMenu()">FOTORIE</a></li>
+                <li><a href="#fotogalerie" onclick="closeMenu()">FOTOGALERIE</a></li>
                 <li><a href="#reference" onclick="closeMenu()">REFERENCE</a></li>
                 <li><a href="#kontakt" onclick="closeMenu()">KONTAKT</a></li>
             </ul>
@@ -734,7 +735,7 @@
         <h2 class="section-title">Kdo jsem?</h2>
         <div class="about-container">
             <div class="about-image">
-                 <img src="images/adela-photo.jpeg" alt="Adéla" />
+                <img src="images/adela-photo.jpeg" alt="Adéla">
             </div>
             <div class="about-content">
                 <h3>Adéla</h3>
@@ -771,7 +772,7 @@
     <section class="services-detail">
         <h2 class="section-title">Nabízené služby</h2>
         <div class="services-detail-intro">
-            <p>Každý pár má jinou představu svého velkého dne — někdo sní o tradiční svatbě v kostele, někdo plánuje veselku pro 130 hostů a jiní si přejí oběad ve stylu Pána prstenů. Slovo "individuální přístup" možná zní trochu otřepané, ale v mém případě je to naprostá pravda.</p>
+            <p>Každý pár má jinou představu svého velkého dne — někdo sní o tradiční svatbě v kostele, někdo plánuje veselku pro 130 hostů a jiní si přejí oběd ve stylu Pána prstenů. Slovo "individuální přístup" možná zní trochu otřepané, ale v mém případě je to naprostá pravda.</p>
             <p>Mým úkolem je najít pro vás ty nejlepší cesty, jak vaše sny proměnit ve skutečnost. Ráda se s vámi osobně setkám, probereme vaši představu, poradím s tím, co vás trápí, a pomohu vám s čímkoliv – ať už chcete naplánovat celou svatbu na klíč, nebo jen potřebujete poradit s výběrem dortu, dekorací či sestavením harmonogramu.</p>
             <p>Každý den je jiný a já se postarám o to, aby byl přesně podle vašich představ – pohodový, bez stresu a s radostí.</p>
         </div>
@@ -789,7 +790,7 @@
             <div class="service-detail-card">
                 <div class="service-detail-icon">👥</div>
                 <h3>Zajištění dodavatelů</h3>
-                <p>Doporuču prověřené dodavatele, se kterými mám dlouhodobé zkušenosti. Zajistím nabídky, domluvím si s nimi detaily a pohlídám komunikaci. Ať už hledáte fotografa, floristku, DJ nebo cukrářku — vím, na koho se obrátit.</p>
+                <p>Doporučí prověřené dodavatele, se kterými mám dlouhodobé zkušenosti. Zajistím nabídky, domluvím si s nimi detaily a pohlídám komunikaci. Ať už hledáte fotografa, floristku, DJ nebo cukrářku — vím, na koho se obrátit.</p>
             </div>
             <div class="service-detail-card">
                 <div class="service-detail-icon">💰</div>
@@ -818,204 +819,4 @@
         <div class="pricing-grid">
             <div class="pricing-card">
                 <h3>Konzultační schůzky</h3>
-                <div class="price">300 Kč</div>
-                <p>První schůzka (osobně či on-line) zdarma, následné konzultace (časově neomezené) 300 Kč.</p>
-            </div>
-            <div class="pricing-card">
-                <h3>Návrh svatebního konceptu</h3>
-                <div class="price">2000 Kč</div>
-                <p>Návrh svatebního konceptu je prvním nástinem, jak by vaše vysněná svatba měla vypadat. Koncept slouží jako základ pro plánování a sjednocuje všechny detaily vašeho dne. Pokud se rozhodnete využít mé služby v celém rozsahu koordinace svatby, nabízím výhodnější balíček.</p>
-            </div>
-            <div class="pricing-card">
-                <h3>Doporučení či vyhledávání dodavatelů</h3>
-                <div class="price">od 2000 Kč</div>
-                <p>Pokud tápete, které dodavatele zvolit a nevíte, zda je nabízená cena za službu moc či málo, ráda vám poradím s výběrem. Cena závisí na rozsahu služby.</p>
-            </div>
-            <div class="pricing-card">
-                <h3>Sestavení harmonogramu svatebního dne</h3>
-                <div class="price">od 2000 Kč</div>
-                <p>Rozhodli jste se pro zajištění svatby po vlastní ose, ale bojíte se, abyste v den D na nic nezapomněli? Připravím jasný, srozumitelný a realistický plán celého dne. Díky němu budete vědět, kdo kdy co dělá, a nic nezůstane náhodě.</p>
-            </div>
-            <div class="pricing-card">
-                <h3>Koordinace svatebního dne</h3>
-                <div class="price">od 5000 Kč</div>
-                <p>Koordinace svatebního dne je klíčovým prvkem pro zajištění hladkého průběhu a nezapomenutelného prožitku pro novomanžele. Proto budu na místě od samého začátku až do konce, abych ohlídala, že vše proběhne tak, jak má, a vyřešila případné problémy.</p>
-            </div>
-            <div class="pricing-card">
-                <h3>Svatba na klíč</h3>
-                <div class="price">dohodou</div>
-                <p>Komplexní balíček pro páry, které chtějí vše svěřit profesiónálovi. Od úvodní konzultace přes koncept, výběr dodavatelů, plánování, rozpočet až po koordinaci svatebního dne a dořešení po svatbě.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Process Section -->
-    <section id="jak-to-funguje" class="process">
-        <h2 class="section-title">Jak to funguje?</h2>
-        <div class="process-grid">
-            <div class="process-item">
-                <div class="process-number">1</div>
-                <div class="process-content">
-                    <h3>Úvodní konzultace</h3>
-                    <p>Na nezávazném prvním setkání (online nebo osobně) probereme vaši představu, priority a styl svatby. Zjistím, co je pro vás nejdůležitější, s čím si nevíte rady a jak vám mohu nejlépe pomoct. Součástí úvodní konzultace je i doporučení prvních kroků, tipů a možností, které se k vašemu typu svatby nejvíce hodí — abyste už od začátku měli jasno, jak postupovat dál.</p>
-                </div>
-            </div>
-            <div class="process-item">
-                <div class="process-number">2</div>
-                <div class="process-content">
-                    <h3>Návrh konceptu</h3>
-                    <p>Ráda vám připravím detailní koncept vaší svatby. Zahrnuje styl, barevnost, atmosféru, celkový vizuální směr i doporučené dekorace a prvky, které váš den udělají osobním a jedinečným. Koncept slouží jako základ, který sjednotí všechny detaily — od designu svatebního oznámení až po výzdobu místa a harmonogram dne.</p>
-                </div>
-            </div>
-            <div class="process-item">
-                <div class="process-number">3</div>
-                <div class="process-content">
-                    <h3>Rozpočtování</h3>
-                    <p>Dle vašich přání a požadavků, velikosti svatby a stylu připravím návrh orientačního rozpočtu. Díky tomu budete mít už v začátku jasný přehled o finanční náročnosti jednotlivých položek, možnostech úspor i potenciálních alternativách. Transparentně vám ukážu, kde se dá ušetřit, kde se vyplatí investovat a jak nastavit rozpočet tak, aby odpovídal vašim snům i možnostem — bez zbytečného stresu.</p>
-                </div>
-            </div>
-            <div class="process-item">
-                <div class="process-number">4</div>
-                <div class="process-content">
-                    <h3>Plánování</h3>
-                    <p>Jakmile máme jasný směr, pustíme se do detailního plánování. Pomohu vám s výběrem ověřených dodavatelů, domluvím termíny, zajistím komunikaci, připravím časovou osu a check list a pohlídám všechny úkoly i termíny. Pravidelně vás informuji o postupu, aby pro vás bylo plánování co nejjednodušší a bez stresu. Ať už potřebujete svatbu na klíč, nebo jen částečnou pomoc, proces přizpůsobím vašim možnostem a očekáváním.</p>
-                </div>
-            </div>
-            <div class="process-item">
-                <div class="process-number">5</div>
-                <div class="process-content">
-                    <h3>Svatební den</h3>
-                    <p>V den D jsem na místě od začátku až do konce, abych vše pohlídala za vás. Koordinuji dodavatele, řeším nečekané situace, hlídám časový plán a starám se o to, aby všechno proběhlo hladce a vy jste si mohli jen užívat. Vy se soustředíte na sebe. Já se postarám o zbytek.</p>
-                </div>
-            </div>
-            <div class="process-item">
-                <div class="process-number">6</div>
-                <div class="process-content">
-                    <h3>Následná péče</h3>
-                    <p>Ani po svatbě se hned neloučíme. Pomohu vám s předáním materiálů, komunikací s dodavateli, vyúčtováním nebo dalšími drobnostmi, které je potřeba dořešit. Jsem tu, abych vám ulehčila celý proces od začátku až do posledního detailu — protože svatba nekončí obřadem, ale teprve začíná vaše společná kapitola.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Section -->
-    <section class="why">
-        <h2 class="section-title">Proč si mě vybrat?</h2>
-        <div class="why-grid">
-            <div class="why-item">
-                <div class="why-icon">✓</div>
-                <p>Spolehlivá komunikace – víte, co se děje v každém kroku</p>
-            </div>
-            <div class="why-item">
-                <div class="why-icon">✓</div>
-                <p>Transparentní a promyšlená práce s rozpočtem</p>
-            </div>
-            <div class="why-item">
-                <div class="why-icon">✓</div>
-                <p>Moderní digitální plánování, které šetří čas</p>
-            </div>
-            <div class="why-item">
-                <div class="why-icon">✓</div>
-                <p>Respektující, osobní přístup – žádné svatby podle šablony</p>
-            </div>
-            <div class="why-item">
-                <div class="why-icon">✓</div>
-                <p>Profesionální event a manažerské zkušenosti</p>
-            </div>
-            <div class="why-item">
-                <div class="why-icon">✓</div>
-                <p>Koordinace dne D, která vám dovolí si váš den naplno užít</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section id="fotogalerie" class="gallery-section">
-        <h2 class="section-title">Fotogalerie</h2>
-        <div class="gallery">
-            <div class="gallery-item">
-    <img src="images/img1.jpg" alt="Svatební fotografie">
-</div>
-
-<div class="gallery-item">
-    <img src="images/img2.jpg" alt="Svatební fotografie">
-</div>
-
-<div class="gallery-item">
-    <img src="images/img3.jpg" alt="Svatební fotografie">
-</div>
-            
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="reference" class="testimonials">
-        <h2 class="section-title">Reference</h2>
-        <div class="testimonial-grid">
-            <div class="testimonial">
-                <div class="testimonial-text">
-                    Naše zkušenost s Áďou byla jedním slovem perfektní. Byli jsme oba extrémně pracovně vytížení a příprava svatby tak šla trochu stranou. Měli jsme nonstop pocit, že to nemůžeme zvládnout. S první koordinátorkou jsme se nakonec museli rozloučit – měli jsme pocit, že jsme to spíše my, kdo ji musí prosit, aby projekt posouvala dál. Áďa byla pravý opak. Během několika dní připravila jasný a detailní seznam všeho, co je potřeba zařídit, spoustu věcí převzala sama a u těch, které vyžadovaly naši konzultaci, si velmi rychle zjistila všechny podklady. Připomínala nám, co je ještě potřeba udělat, a to vždy neuvěřitelně milým, lehkým a profesionálním způsobem. V den svatby jsme se nemuseli starat vůbec o nic. A pokud je něco, co si na vlastní svatbě opravdu přejete, je to pocit, že všechno dopadne skvěle i bez vašeho zásahu. A přesně tak jsme se cítili už od samého rána. Žádný den jsme si v životě neužili tak jako naši svatební párty – a to především díky Ádě. Zní to jako klišé, ale doporučili bychom ji opravdu úplně každému. Moc děkujeme, Áďo!
-                </div>
-                <div class="testimonial-author">— Kateřina a Honza</div>
-            </div>
-            <div class="testimonial">
-                <div class="testimonial-text">
-                    Naše svatba byla z velké části připravená po vlastní ose, ale došlo nám, že na některé detaily prostě sami nestačíme. Adéla nám pomohla s výzdobou, doladila poslední dekorace a postarala se o dort, který jsme potřebovali dořešit. V den svatby převzala koordinaci harmonogramu tak, že jsme si ani jednou nemuseli kontrolovat čas nebo řešit, co má následovat. Díky ní jsme měli pocit, že je o všechno postaráno.
-                </div>
-                <div class="testimonial-author">— Petra a Martin</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="kontakt" class="contact">
-        <h2 class="section-title">Kontakt</h2>
-        <div class="contact-content">
-            <p class="contact-intro">
-                Máte otázky nebo byste rádi začali plánovat svou svatbu? Ráda se s vámi spojím a probereme vše potřebné.
-            </p>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <strong>Email:</strong> <a href="mailto:wedandchill.svatby@gmail.com">wedandchill.svatby@gmail.com</a>
-                </div>
-                <div class="contact-item">
-                    <strong>Telefon:</strong> <a href="tel:+420777817019">+420 777 817 019</a>
-                </div>
-                <div class="contact-item">
-                    <strong>Instagram:</strong> <a href="https://instagram.com/wed.and.chill" target="_blank">@wed.and.chill</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Wed&Chill - Adéla | Svatební koordinace</p>
-        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Pro vaše nezapomenutelné okamžiky</p>
-    </footer>
-
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById('navMenu');
-            const toggle = document.querySelector('.nav-toggle');
-            menu.classList.toggle('active');
-            toggle.classList.toggle('active');
-        }
-
-        function closeMenu() {
-            const menu = document.getElementById('navMenu');
-            const toggle = document.querySelector('.nav-toggle');
-            menu.classList.remove('active');
-            toggle.classList.remove('active');
-        }
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const navHeight = document.querySelector('nav').offsetHeight;
-                    const targetPosition = target.offsetTop - navHeight;
-                    window.scrollTo({
-                        top: targetPosition
+                <div
