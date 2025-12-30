@@ -38,11 +38,12 @@
             align-items: center;
         }
 
-. {
-    width: 200px;      /* set desired width */
-    height: auto;       /* maintain aspect ratio */
-    display: block;     /* optional: make it a block element */
-}
+        .logo {
+            font-size: 1.8rem;
+            color: #284d3c;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
 
         .nav-toggle {
             display: none;
@@ -696,10 +697,8 @@
 <body>
     <!-- Navigation -->
     <nav>
-        <h1 class="logo">
-    <img src="images/wed-and-chill-black.png" alt="Logo">
-    wed.and.chill
-</h1>
+        <div class="nav-container">
+            <div class="logo">Wed&Chill</div>
             <div class="nav-toggle" onclick="toggleMenu()">
                 <span></span>
                 <span></span>
@@ -944,18 +943,6 @@
 
 <div class="gallery-item">
     <img src="images/img3.jpg" alt="Svatební fotografie">
-</div>
-            
- <div class="gallery-item">
-    <img src="images/img4.jpg" alt="Svatební fotografie">
-</div>
-
- <div class="gallery-item">
-    <img src="images/img5.jpg" alt="Svatební fotografie">
-</div>
-
- <div class="gallery-item">
-    <img src="images/img6.jpg" alt="Svatební fotografie">
 </div>
             
         </div>
