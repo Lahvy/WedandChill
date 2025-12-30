@@ -38,11 +38,25 @@
             align-items: center;
         }
 
+      .logo {
+    font-size: 1.8rem;
+    color: #284d3c;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
         .logo {
-            font-size: 1.8rem;
-            color: #284d3c;
-            font-weight: 600;
-            letter-spacing: 2px;
+    display: flex;
+    align-items: center;   /* vertical alignment */
+    gap: 10px;             /* space between image and text */
+    font-size: 1.8rem;
+    color: #284d3c;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+        .logo img {
+    height: 40px;   /* adjust as needed */
+    width: auto;    /* keep aspect ratio */
+}
         }
 
         .nav-toggle {
@@ -698,7 +712,10 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <div class="logo">Wed&Chill</div>
+            <h1 class="logo">
+    <img src="./images/wed-and-chill-black.png" alt="Wed & Chill Logo">
+    wed.and.chill
+</h1>
             <div class="nav-toggle" onclick="toggleMenu()">
                 <span></span>
                 <span></span>
