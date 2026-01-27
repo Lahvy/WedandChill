@@ -1063,5 +1063,16 @@
         });
     });
 </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const regex = /(\s|^)(a|i|k|o|s|u|v|z|ve|ke|se|ze|ku|do|na)\s+/gi;
+
+    document.querySelectorAll("p, li, h1, h2, h3").forEach(el => {
+      el.innerHTML = el.innerHTML.replace(regex, "$1$2&nbsp;");
+    });
+  });
+  </script>
+
 </body>
 </html>
